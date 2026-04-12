@@ -1,0 +1,40 @@
+<div class="card h-100 shadow-sm">
+  <img
+    src="<%= mealkit.imageUrl %>"
+    class="card-img-top"
+    alt="<%= mealkit.title %>"
+    style="height: 220px; object-fit: cover;"
+  >
+
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title"><%= mealkit.title %></h5>
+
+    <p class="card-text mb-2">
+      <strong>Includes:</strong> <%= mealkit.includes %>
+    </p>
+
+    <p class="card-text"><%= mealkit.description %></p>
+
+    <p class="card-text mb-1">
+      <strong>Category:</strong> <%= mealkit.category %>
+    </p>
+
+    <p class="card-text mb-1">
+      <strong>Cooking Time:</strong> <%= mealkit.cookingTime %> min
+    </p>
+
+    <p class="card-text mb-1">
+      <strong>Servings:</strong> <%= mealkit.servings %>
+    </p>
+
+    <p class="card-text fw-bold mt-auto">
+      $<%= Number(mealkit.price).toFixed(2) %>
+    </p>
+
+    <% if (user && user.role === "Customer") { %>
+      <form method="POST" action="/cart/add/<%= mealkit._id %>">
+        <button class="btn btn-success w-100" type="submit">Buy</button>
+      </form>
+    <% } %>
+  </div>
+</div>

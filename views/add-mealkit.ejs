@@ -1,0 +1,57 @@
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="mb-4">Add Meal Kit</h1>
+
+  <form method="POST" action="/mealkits/add" enctype="multipart/form-data" class="border rounded p-4 bg-light">
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Includes</label>
+      <input type="text" name="includes" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea name="description" class="form-control" rows="4" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <input type="text" name="category" class="form-control" required>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Price</label>
+        <input type="number" name="price" class="form-control" min="0.01" step="0.01" required>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Cooking Time (minutes)</label>
+        <input type="number" name="cookingTime" class="form-control" min="1" step="1" required>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Servings</label>
+        <input type="number" name="servings" class="form-control" min="1" step="1" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Meal Kit Image</label>
+      <input type="file" name="imageUrl" class="form-control" accept=".jpg,.jpeg,.png,.gif" required>
+    </div>
+
+    <div class="form-check mb-4">
+      <input class="form-check-input" type="checkbox" name="featuredMealKit" id="featuredMealKit">
+      <label class="form-check-label" for="featuredMealKit">
+        Featured Meal Kit
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Meal Kit</button>
+    <a href="/mealkits/list" class="btn btn-secondary ms-2">Cancel</a>
+  </form>
+</div>

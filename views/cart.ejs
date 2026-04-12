@@ -1,0 +1,63 @@
+<div class="container py-5">
+  <h1 class="mb-4">Shopping Cart</h1>
+
+  <% if (!detailedCart.length) { %>
+    <div class="alert alert-info">Your shopping cart is empty.</div>
+  <% } else { %>
+    <% detailedCart.forEach(item => { %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-md-2 mb-3 mb-md-0">
+              <img
+                src="<%= item.kit.imageUrl %>"
+                alt="<%= item.kit.title %>"
+                class="img-fluid rounded"
+              >
+            </div>
+
+            <div class="col-md-4">
+              <h5 class="mb-1"><%= item.kit.title %></h5>
+              <p class="mb-1"><strong>Includes:</strong> <%= item.kit.includes %></p>
+              <p class="mb-0"><strong>Price:</strong> $<%= item.kit.price.toFixed(2) %></p>
+            </div>
+
+            <div class="col-md-3 mt-3 mt-md-0">
+              <form method="POST" action="/cart/update/<%= item.kit._id %>">
+                <label class="form-label">Quantity</label>
+                <input
+                  type="number"
+                  name="quantity"
+                  min="1"
+                  step="1"
+                  value="<%= item.qty %>"
+                  class="form-control mb-2"
+                >
+                <button class="btn btn-outline-primary btn-sm" type="submit">Update</button>
+              </form>
+            </div>
+
+            <div class="col-md-3 mt-3 mt-md-0 text-md-end">
+              <p class="fw-bold mb-2">Line Total: $<%= item.total.toFixed(2) %></p>
+              <form method="POST" action="/cart/remove/<%= item.kit._id %>">
+                <button class="btn btn-danger btn-sm" type="submit">Remove</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+
+    <div class="card">
+      <div class="card-body">
+        <h4>Subtotal: $<%= subtotal.toFixed(2) %></h4>
+        <h4>Tax (10%): $<%= tax.toFixed(2) %></h4>
+        <h3 class="mb-4">Grand Total: $<%= grandTotal.toFixed(2) %></h3>
+
+        <form method="POST" action="/cart/place-order">
+          <button class="btn btn-success btn-lg" type="submit">Place Order</button>
+        </form>
+      </div>
+    </div>
+  <% } %>
+</div>

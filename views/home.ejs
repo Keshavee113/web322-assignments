@@ -1,0 +1,63 @@
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold">Fresh meal kits, made simple.</h1>
+        <p class="lead">Choose meals, we deliver ingredients, you cook in under 30 minutes.</p>
+        <a href="/on-the-menu" class="btn btn-primary btn-lg">Browse Menu</a>
+      </div>
+      <div class="col-lg-6">
+        <img src="/images/hero.jpg" alt="Meal kit hero" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4">How it works</h2>
+    <div class="row g-4 row-cols-1 row-cols-md-4">
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <img src="/images/step1.jpg" alt="Pick meals" class="img-fluid mb-2 rounded">
+          <h5>Pick meals</h5>
+          <p class="mb-0">Choose kits that match your week.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <img src="/images/step2.jpg" alt="We pack" class="img-fluid mb-2 rounded">
+          <h5>We pack</h5>
+          <p class="mb-0">Fresh ingredients portioned for you.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <img src="/images/step3.jpg" alt="We deliver" class="img-fluid mb-2 rounded">
+          <h5>We deliver</h5>
+          <p class="mb-0">Delivered to your door on schedule.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="p-3 border rounded h-100">
+          <img src="/images/step4.jpg" alt="You cook" class="img-fluid mb-2 rounded">
+          <h5>You cook</h5>
+          <p class="mb-0">Easy steps, restaurant-style results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4">Featured Meal Kits</h2>
+    <div class="row g-4 row-cols-1 row-cols-lg-3">
+      <% featuredMealKits.forEach(mk => { %>
+        <div class="col">
+          <%- include("partials/mealkit", { mealkit: mk }) %>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
