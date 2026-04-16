@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const layouts = require("express-ejs-layouts");
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
 const session = require("express-session");
 require("dotenv").config();
 
@@ -13,9 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
-.then(() => console.log("MongoDB connected"))
-.catch(err => console.log(err));
+//mongoose.connect(process.env.MONGODB_CONNECTION_STRING)
+//.then(() => console.log("MongoDB connected"))
+//.catch(err => console.log(err));
 
 
 app.use(express.urlencoded({ extended: true }));
